@@ -3,9 +3,11 @@ import Form from "./components/AddTODOForm/Form";
 import { useEffect, useState } from "react";
 import TODOList from "./components/TODOList";
 import { getTODOs } from "./api/backend";
+import { Todo } from "./types/Todo";
 
 function App() {
-    const [todos, setTodos] = useState<string[]>([]);
+    const [todos, setTodos] = useState<Todo[]>([]);
+
     useEffect(() => {
         pullTodos();
     }, []);

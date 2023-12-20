@@ -1,10 +1,11 @@
 import { useFormik } from "formik";
 import { addTodoValidations } from "./validation";
 import { addTODO } from "../../api/backend";
+import { Todo } from "../../types/Todo";
 
 type Props = {
-    todos: string[];
-    setTodos: React.Dispatch<React.SetStateAction<string[]>>;
+    todos: Todo[];
+    setTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
     pullTodos: () => void;
 };
 
