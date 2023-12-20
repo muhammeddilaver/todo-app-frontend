@@ -13,7 +13,7 @@ function Form({ todos, setTodos, pullTodos }: Props) {
         initialValues: {
             todoName: "",
         },
-        onSubmit: async (values, bag) => {
+        onSubmit: async (values) => {
             try {
                 await addTODO(values.todoName);
                 setTodos([...todos, values.todoName]);

@@ -1,8 +1,13 @@
 import { deleteTODO } from "../api/backend";
 
 type Props = {
-    todos: string[];
+    todos: Todo[];
     pullTodos: () => void;
+};
+
+type Todo = {
+    _id: string;
+    name: string;
 };
 
 function TODOList({ todos, pullTodos }: Props) {
