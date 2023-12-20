@@ -7,7 +7,7 @@ import { Todo } from "./types/Todo";
 
 function App() {
     const [todos, setTodos] = useState<Todo[]>([]);
-
+    const [loading, setLoading] = useState<boolean>(true);
     useEffect(() => {
         pullTodos();
     }, []);
@@ -16,6 +16,7 @@ function App() {
         try {
             const asd = await getTODOs();
             setTodos([...asd.todos]);
+            setLoading(false);
         } catch (error) {
             console.log("");
         }
@@ -26,7 +27,7 @@ function App() {
             <Header />
             <div className="mx-auto max-w-2xl">
                 <Form todos={todos} setTodos={setTodos} pullTodos={pullTodos} />
-                <TODOList todos={todos} pullTodos={pullTodos}/>
+                <TODOList todos={todos} pullTodos={pullTodos} loading={loading}/>
             </div>
         </>
     );
