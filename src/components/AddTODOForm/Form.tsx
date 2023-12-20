@@ -16,8 +16,9 @@ function Form({ todos, setTodos, pullTodos }: Props) {
         },
         onSubmit: async (values) => {
             try {
-                await addTODO(values.todoName);
-                setTodos([...todos, values.todoName]);
+                const newTodo=await addTODO(values.todoName);
+                
+                setTodos([...todos, newTodo]);
                 pullTodos();
                 formik.resetForm();
             } catch (error) {
